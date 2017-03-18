@@ -1,9 +1,20 @@
 const express = require('express');
-const app = express();
+const url = require('url');
+const timestamp = require('./timestamp');
 
-app.get('/', (request, response) => {
-    response.send('123');
+const app = express();
+app.use(express.static(__dirname));
+
+app.get('/', (req, res) => {
+    res.render('index');
 });
-app.listen(8080, () => {
-    console.log('Listening to port 8080');
+
+app.get('/:time', function(req, res) {
+    const urlObj = url.parse(req.url, true)
+    const parsedPathname = urlObj.pathname.replace(/%20/g, ',');
+    const output = timestamp(parsedPathname.substring(1));
+
+    res.end(JSON.stringify(output));
 });
+
+app.listen(8080);
