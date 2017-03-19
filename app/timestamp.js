@@ -21,8 +21,7 @@ module.exports = function formatTime(time) {
     const isValidTimestamp = new Date(time * 1000).getTime() > 0;
 
     if(isValidDate || isValidTimestamp) {
-        const date = isValidDate ?
-                date = new Date(time) : new Date(time * 1000);
+        const date = isValidDate ? new Date(time) : new Date(time * 1000);
 
         const unixTimeStamp = Math.round(date.getTime() / 1000);
         const naturalTime = monthNames[date.getMonth()] + ' ' +
