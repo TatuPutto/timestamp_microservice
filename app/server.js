@@ -13,7 +13,6 @@ app.get('/:time', (req, res) => {
     const urlObj = url.parse(req.url, true)
     const output = timestamp(urlObj.pathname.substring(1));
     res.writeHead(200, {'Content-Type': 'application/json'});
-    res.end(output);
+    res.end(JSON.stringify(output));
 });
-
 app.listen(app.get('port'));

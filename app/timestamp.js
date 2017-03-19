@@ -65,5 +65,5 @@ function createDateAndTimestamp(date) {
     const naturalTime = monthNames[date.getMonth()] + ' ' +
             date.getDate() + ', ' + date.getFullYear();
 
-    return JSON.stringify({unix: unixTimeStamp, natural: naturalTime});
+    return {unix: unixTimeStamp, natural: naturalTime};
 }
