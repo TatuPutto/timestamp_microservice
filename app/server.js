@@ -11,9 +11,9 @@ app.get('/', (req, res) => res.render('index'));
 
 app.get('/:time', (req, res) => {
     const urlObj = url.parse(req.url, true)
-    const parsedPathname = urlObj.pathname.replace(/%20/g, ',');
-    const output = timestamp(parsedPathname.substring(1));
-    res.end(JSON.stringify(output));
+    const output = timestamp(urlObj.pathname.substring(1));
+    res.writeHead(200, {'Content-Type': 'application/json'});
+    res.end(output);
 });
 
 app.listen(app.get('port'));

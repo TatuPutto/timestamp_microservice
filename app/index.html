@@ -6,13 +6,12 @@
 </head>
 <body>
     <div class="container-fluid">
-        <div class="col-sm-8 col-md-offset-2"
-                style="background-color: whitesmoke;padding: 0px 40px 40px 40px">
-            <h1 class="text-primary text-center">Timestamp microservice</h1>
-            <p>Input date or unix timestamp as pathname. Get unix timestamp and time in human readable format.</p>
+        <div class="col-sm-6 col-sm-offset-3">
+            <h1 class="text-primary" style="padding-bottom:10px;">Timestamp microservice</h1>
+            <p style="font-size: 16px;">Pass date (e.g. March 20, 2017) or Unix timestamp (e.g. 1489968000) as pathname, get Unix timestamp and natural language form of that date. If passed string is not valid date or Unix timestamp, return value for both properties is null.</p>
             <h3>Example usage:</h2>
-            <a href="http://localhost:8080/1.1.1970"><code>http://localhost:8080/1.1.1970</code></a></br>
-            <a href="http://localhost:8080/1489795200"><code>http://localhost:8080/1489795200</code></a>
+            <a href="https://blooming-fortress-68446.herokuapp.com/February-2-2017"><code>https://blooming-fortress-68446.herokuapp.com/March-2-2017</code></a></br>
+            <a href="https://blooming-fortress-68446.herokuapp.com/1489968000"><code>https://blooming-fortress-68446.herokuapp.com/1489968000</code></a>
             <h3>Example output:</h2>
             <code>{"unix":1489788000,"natural":"March 18, 2017"}</code>
         </div>
