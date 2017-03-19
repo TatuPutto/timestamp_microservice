@@ -1,8 +1,10 @@
 const express = require('express');
 const url = require('url');
 const timestamp = require('./timestamp');
-
 const app = express();
+
+app.set('port', (process.env.PORT || 8080));
+
 app.use(express.static(__dirname));
 
 app.get('/', (req, res) => res.render('index'));
@@ -14,4 +16,4 @@ app.get('/:time', (req, res) => {
     res.end(JSON.stringify(output));
 });
 
-app.listen(5000);
+app.listen(app.get('port'));
