@@ -19,7 +19,7 @@ const monthNames = [
 module.exports = function formatTime(time) {
     // check if Unix timestamp
     if(new Date(time * 1000).getTime() > 0) {
-        return formTimestamps(new Date(time * 1000));
+        return createDateAndTimestamp(new Date(time * 1000));
     }
 
     // remove special characters and decode url
@@ -54,7 +54,7 @@ module.exports = function formatTime(time) {
     const isValidDate = moment(formattedDate, 'MM.DD.YYYY', true).isValid();
 
     if(isValidDate) {
-        return formTimestamps(new Date(formattedDate));
+        return createDateAndTimestamp(new Date(formattedDate));
     }
     return {unix: null, natural: null};
 }
